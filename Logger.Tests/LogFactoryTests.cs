@@ -33,7 +33,7 @@ public class LogFactoryTests
         var logger = factory.CreateLogger(nameof(LogFactoryTests));
         //Assert
         Assert.IsNotNull(logger);
-        Assert.IsInstanceOfType(logger, typeof(FileLogger));
+        Assert.IsInstanceOfType<FileLogger>(logger);
         Assert.AreEqual((logger as FileLogger)?.GetFilePath(), path);
     }
 
@@ -58,7 +58,7 @@ public class LogFactoryTests
         var logger = factory.CreateLogger(nameof(LogFactoryTests));
         //Assert
         Assert.IsNotNull(logger);
-        Assert.IsInstanceOfType(logger, typeof(FileLogger));
+        Assert.IsInstanceOfType<FileLogger>(logger);
         Assert.AreEqual((logger as FileLogger)?.GetFilePath(), path);
     }
 }

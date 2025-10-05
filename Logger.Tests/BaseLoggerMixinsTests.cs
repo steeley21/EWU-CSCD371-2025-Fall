@@ -13,7 +13,7 @@ public class BaseLoggerMixinsTests
         // Arrange
 
         // Act
-        Assert.ThrowsExactly<ArgumentNullException>(() => BaseLoggerMixins.Error(null, ""));
+        Assert.ThrowsExactly<ArgumentNullException>(() => BaseLoggerMixins.Error(null!, ""));
 
         // Assert
     }
