@@ -43,7 +43,6 @@ public class LogFactoryTests
         //Arrange
         var factory = new LogFactory();
         //Act & Assert
-        Assert.ThrowsExactly<ArgumentException>(() => factory.ConfigureFileLogger(null));
         Assert.ThrowsExactly<ArgumentException>(() => factory.ConfigureFileLogger(""));
         Assert.ThrowsExactly<ArgumentException>(() => factory.ConfigureFileLogger("   "));
     }

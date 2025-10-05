@@ -1,10 +1,11 @@
-﻿using System;
+﻿#nullable enable
+using System;
 
 namespace Logger;
 
 public class LogFactory
 {
-    private string _filePath;
+    private string? _filePath;
 
     public void ConfigureFileLogger(string filePath)
     {
@@ -14,7 +15,7 @@ public class LogFactory
         _filePath = filePath;
     }
 
-    public BaseLogger CreateLogger(string className)
+    public BaseLogger? CreateLogger(string className)
     {
         if (string.IsNullOrWhiteSpace(_filePath))
         {
@@ -26,5 +27,4 @@ public class LogFactory
             ClassName = className
         };
     }
-
 }
