@@ -17,7 +17,7 @@ public class FileLogger : BaseLogger
 
     public override void Log(LogLevel logLevel, string message)
     {
-        string timestamp = DateTime.Now.ToString("M/d/yyyy h:mm:ss tt");
+        string timestamp = DateTime.Now.ToString("M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture);
         string className = ClassName;
 
         using var sw = File.AppendText(_filePath);
