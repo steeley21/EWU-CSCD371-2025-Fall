@@ -8,9 +8,14 @@ public class LogFactory
 
     public void ConfigureFileLogger(string filePath)
     {
+        if (filePath is null)
+        {
+            throw new ArgumentNullException(nameof(filePath));
+        }
         if (string.IsNullOrWhiteSpace(filePath))
-            throw new ArgumentException("A non-empty file path is required.", nameof(filePath));
-
+        {
+            throw new ArgumentException("File path cannot be empty or whitespace", nameof(filePath));
+        }
         _filePath = filePath;
     }
 
