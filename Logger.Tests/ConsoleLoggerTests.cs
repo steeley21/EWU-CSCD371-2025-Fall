@@ -10,10 +10,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Logger.Tests
 {
     [TestClass]
-    public class ConsoleLoggerTests
+    public class ConsoleLoggerTests : IDisposable
     {
         private StringWriter _stringWriter = null!;
         private TextWriter _output = null!;
+        private bool _disposed = false;
 
         [TestInitialize]
         public void Setup()
@@ -28,6 +29,16 @@ namespace Logger.Tests
         {
             Console.SetOut(_output);
             _stringWriter.Dispose();
+        }
+
+        public void Dispose()
+        {
+            if (!_disposed)
+            {
+                _stringWriter?.Dispose();
+                _disposed = true;
+            }
+            GC.SuppressFinalize(this);
         }
 
         [TestMethod]
