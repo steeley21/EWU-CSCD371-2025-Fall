@@ -14,7 +14,7 @@ namespace Logger.Tests
     {
         private StringWriter _stringWriter = null!;
         private TextWriter _output = null!;
-        private bool _disposed = false;
+        private bool _disposed;
 
         [TestInitialize]
         public void Setup()
