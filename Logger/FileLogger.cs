@@ -22,7 +22,6 @@ public class FileLogger : BaseLogger
 
         using var sw = File.AppendText(_filePath);
         sw.WriteLine($"{timestamp} {className} {logLevel}: {message}");
-
     }
 
     public string GetFilePath()

@@ -6,7 +6,6 @@ public abstract class BaseLogger
 
     protected BaseLogger()
     {
-        // Default to the actual derived class name
         ClassName = GetType().Name;
     }
 

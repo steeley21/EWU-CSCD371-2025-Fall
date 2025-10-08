@@ -14,10 +14,8 @@ public class LogFactoryTests
     {
         //Arrange
         var factory = new LogFactory();
-
         //Act
         var logger = factory.CreateLogger(nameof(LogFactoryTests));
-
         //Assert
         Assert.IsNull(logger);
     }

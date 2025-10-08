@@ -13,13 +13,10 @@ public class FileLoggerTests
     {
         //Arrange
         string path = "goodpath";
-
         //Act
         FileLogger logger = new FileLogger(path);
-
         //Assert
         Assert.AreEqual(logger.GetFilePath(), path);
-
     }
 
     [TestMethod]
@@ -27,13 +24,10 @@ public class FileLoggerTests
     {
         //Arrange
         string path = "goodpath";
-
         //Act
         FileLogger logger = new FileLogger(path);
-
         //Assert
         Assert.AreNotEqual(logger.GetFilePath(), "badPath");
-
     }
 
     [TestMethod]
