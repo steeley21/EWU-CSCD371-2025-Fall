@@ -20,17 +20,6 @@ public class FileLoggerTests
     }
 
     [TestMethod]
-    public void FileLogger_CheckFilePath_Failure()
-    {
-        //Arrange
-        string path = "goodpath";
-        //Act
-        FileLogger logger = new FileLogger(path);
-        //Assert
-        Assert.AreNotEqual(logger.GetFilePath(), "badPath");
-    }
-
-    [TestMethod]
     public void FileLogger_NullFilePath_ThrowsException()
     {
         //Arrange

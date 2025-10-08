@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using System;
 using System.IO;
 
@@ -10,7 +9,7 @@ public class LogFactoryTests
 {
 
     [TestMethod]
-    public void LogFactory_CreateLoggerReturnsNull_Success()
+    public void CreateLogger_WhenNotConfigured_ReturnsNull()
     {
         //Arrange
         var factory = new LogFactory();
@@ -21,7 +20,7 @@ public class LogFactoryTests
     }
 
     [TestMethod]
-    public void LogFactory_CreateLoggerReturnsLogger_Success()
+    public void CreateLogger_WhenConfigured_ReturnsFileLogger()
     {
         //Arrange
         var factory = new LogFactory();
@@ -36,7 +35,22 @@ public class LogFactoryTests
     }
 
     [TestMethod]
-    public void LogFactory_ConfigureFileLoggerWithInvalidPath_ThrowsException()
+    public void CreateLogger_WhenConfigured_SetsClassNameFromCaller()
+    {
+        //Arrange
+        var factory = new LogFactory();
+        var path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+        factory.ConfigureFileLogger(path);
+        //Act
+        var logger = factory.CreateLogger(nameof(LogFactoryTests));
+        //Assert
+        Assert.IsNotNull(logger);
+        Assert.AreEqual(nameof(LogFactoryTests), logger!.ClassName);
+    }
+
+
+    [TestMethod]
+    public void ConfigureFileLogger_WhenPathIsNullOrWhitespace_ThrowsArgumentException()
     {
         //Arrange
         var factory = new LogFactory();
@@ -46,7 +60,7 @@ public class LogFactoryTests
     }
 
     [TestMethod]
-    public void LogFactory_ConfigureFileLoggerWithValidPath_Success()
+    public void ConfigureFileLogger_WhenPathIsValid_CreatesLoggerSuccessfully()
     {
         //Arrange
         var factory = new LogFactory();
