@@ -68,5 +68,17 @@ namespace Logger.Tests
             Assert.IsTrue(output.Contains("message"));
         }
 
+        [TestMethod]
+        public void ClassName_ReturnsCorrectName()
+        {
+            // Arrange
+            var logger = new ConsoleLogger();
+
+            // Act
+            var className = logger.ClassName;
+
+            // Assert
+            Assert.AreEqual(nameof(ConsoleLogger), className);
+        }
     }
 }
