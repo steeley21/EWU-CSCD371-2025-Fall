@@ -21,7 +21,7 @@ public class Jester
         do
         {
             generatedJoke = JokeServiceInterface.GetJoke();
-        } while (!generatedJoke.Contains("Chuck Norris"));
+        } while (generatedJoke.Contains("Chuck Norris"));
 
         return generatedJoke;
     }
