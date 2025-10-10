@@ -2,8 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-
-    <IsPackable>false</IsPackable>
+	<Nullable>enable</Nullable>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+	<IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
