@@ -8,6 +8,6 @@ namespace CanHazFunny;
 
 public interface IJokeService
 {
-    String GetJoke();
+    public String GetJoke();
 }
 
