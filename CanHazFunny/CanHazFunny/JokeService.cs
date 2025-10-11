@@ -13,11 +13,11 @@ public class JokeService : IJokeService
     public string GetJoke()
     {
         string json = HttpClient.GetStringAsync("https://geek-jokes.sameerkumar.website/api?format=json").Result;
-        var dict = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
-        if (dict is not null)
+        Dictionary<string, string>? JokeDict = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
+        if (JokeDict is not null)
         {
-            Console.WriteLine(dict["joke"]);
-            return dict["joke"];
+            Console.WriteLine(JokeDict["joke"]);
+            return JokeDict["joke"];
         }
         return string.Empty;
     }

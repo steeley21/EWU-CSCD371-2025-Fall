@@ -14,7 +14,7 @@ public class JesterTests
         Jester jester = new Jester(new GoodJokeTestClass(), new ConsoleOutput());
         Assert.NotNull(jester);
     }
-    
+
     [Fact]
     public void Constructor_NullJokeService_ThrowsArgumentNullException()
     {
@@ -31,7 +31,7 @@ public class JesterTests
     public void TellJoke_JokeOutput_JokeOutputToStandardOut()
     {
         TextWriter originalOut = Console.Out;
-        using var sw = new StringWriter();
+        using StringWriter sw = new StringWriter();
         Console.SetOut(sw);
         Jester jester = new Jester(new GoodJokeTestClass(), new ConsoleOutput());
         jester.TellJoke();
@@ -43,7 +43,7 @@ public class JesterTests
     public void TellJoke_GoodJokeGiven_GoodJokeOutputToConsole()
     {
         TextWriter originalOut = Console.Out;
-        using var sw = new StringWriter();
+        using StringWriter sw = new StringWriter();
         Console.SetOut(sw);
         Jester jester = new Jester(new GoodJokeTestClass(), new ConsoleOutput());
         jester.TellJoke();
@@ -55,7 +55,7 @@ public class JesterTests
     public void TellJoke_BadJokeGiven_GoodJokeOutputToConsole()
     {
         TextWriter originalOut = Console.Out;
-        using var sw = new StringWriter();
+        using StringWriter sw = new StringWriter();
         Console.SetOut(sw);
         Jester jester = new Jester(new BadJokeTestClass(), new ConsoleOutput());
         jester.TellJoke();

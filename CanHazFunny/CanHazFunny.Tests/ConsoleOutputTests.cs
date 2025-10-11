@@ -14,17 +14,10 @@ public class ConsoleOutputTests
         ConsoleOutput consoleOutput = new ConsoleOutput();
         TextWriter original = Console.Out;
         using StringWriter sw = new StringWriter();
-
-        try
-        {
-            Console.SetOut(sw);
-            consoleOutput.WriteLine("hello");
-            Assert.Equal("hello" + Environment.NewLine, sw.ToString());
-        }
-        finally
-        {
-            Console.SetOut(original);
-        }
+        Console.SetOut(sw);
+        consoleOutput.WriteLine("hello");
+        Console.SetOut(original);
+        Assert.Equal("hello" + Environment.NewLine, sw.ToString());
     }
 
     [Fact]
@@ -33,17 +26,10 @@ public class ConsoleOutputTests
         ConsoleOutput consoleOutput = new ConsoleOutput();
         TextWriter original = Console.Out;
         using StringWriter sw = new StringWriter();
-
-        try
-        {
-            Console.SetOut(sw);
-            consoleOutput.WriteLine(string.Empty);
-            Assert.Equal(Environment.NewLine, sw.ToString());
-        }
-        finally
-        {
-            Console.SetOut(original);
-        }
+        Console.SetOut(sw);
+        consoleOutput.WriteLine(string.Empty);
+        Assert.Equal(Environment.NewLine, sw.ToString());
+        Console.SetOut(original);
     }
 
     [Fact]
@@ -52,17 +38,10 @@ public class ConsoleOutputTests
         ConsoleOutput consoleOutput = new ConsoleOutput();
         TextWriter original = Console.Out;
         using StringWriter sw = new StringWriter();
-
-        try
-        {
-            Console.SetOut(sw);
-            consoleOutput.WriteLine("first");
-            consoleOutput.WriteLine("second");
-            Assert.Equal($"first{Environment.NewLine}second{Environment.NewLine}", sw.ToString());
-        }
-        finally
-        {
-            Console.SetOut(original);
-        }
+        Console.SetOut(sw);
+        consoleOutput.WriteLine("first");
+        consoleOutput.WriteLine("second");
+        Console.SetOut(original);
+        Assert.Equal($"first{Environment.NewLine}second{Environment.NewLine}", sw.ToString());
     }
 }
