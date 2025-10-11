@@ -7,7 +7,7 @@ public class Jester
     public IJokeService JokeServiceInterface { get; set; }
     public IOutput OutputInterface { get; set; }
 
-    Jester(IJokeService? jokeService, IOutput? output)
+    public Jester(IJokeService? jokeService, IOutput? output)
     {
         ArgumentNullException.ThrowIfNull(jokeService);
         ArgumentNullException.ThrowIfNull(output);
@@ -15,7 +15,7 @@ public class Jester
         OutputInterface = output;
     }
 
-    public string TellJoke()
+    public void TellJoke()
     {
         string generatedJoke = string.Empty;
         do
@@ -23,6 +23,6 @@ public class Jester
             generatedJoke = JokeServiceInterface.GetJoke();
         } while (generatedJoke.Contains("Chuck Norris"));
 
-        return generatedJoke;
+        OutputInterface.WriteLine(generatedJoke);
     }
 }
