@@ -2,6 +2,7 @@ using Xunit;
 using System;
 using System.IO;
 using CanHazFunny;
+using System.Collections.Generic;
 
 namespace CanHazFunny.Tests;
 
@@ -18,6 +19,30 @@ public class JesterTests
         Console.SetOut(originalOut);
         Assert.Equal("Funny joke that does not contain the illegal term.", sw.ToString().Trim());
     }
+
+    [Fact]
+    public void TellJoke_GoodJokeGiven_GoodJokeOutputToConsole()
+    {
+        TextWriter originalOut = Console.Out;
+        using var sw = new StringWriter();
+        Console.SetOut(sw);
+        Jester jester = new Jester(new GoodJokeTestClass(), new ConsoleOutput());
+        jester.TellJoke();
+        Console.SetOut(originalOut);
+        Assert.Equal("Funny joke that does not contain the illegal term.", sw.ToString().Trim());
+    }
+
+    [Fact]
+    public void TellJoke_BadJokeGiven_GoodJokeOutputToConsole()
+    {
+        TextWriter originalOut = Console.Out;
+        using var sw = new StringWriter();
+        Console.SetOut(sw);
+        Jester jester = new Jester(new BadJokeTestClass(), new ConsoleOutput());
+        jester.TellJoke();
+        Console.SetOut(originalOut);
+        Assert.Equal("A good joke.", sw.ToString().Trim());
+    }
 }
 
 public class GoodJokeTestClass : IJokeService
@@ -30,8 +55,17 @@ public class GoodJokeTestClass : IJokeService
 
 public class BadJokeTestClass : IJokeService
 {
+    Queue<string> jokes;
+    public BadJokeTestClass()
+    {
+        jokes = new Queue<string>();
+        jokes.Enqueue("Chuck Norris can divide by zero.");
+        jokes.Enqueue("Chuck Norris counted to infinity. Twice.");
+        jokes.Enqueue("Chuck Norris can slam a revolving door.");
+        jokes.Enqueue("A good joke.");
+    }
     public string GetJoke()
     {
-        return "Chuck Norris Hahhahah";
+        return jokes.Dequeue();
     }
 }
