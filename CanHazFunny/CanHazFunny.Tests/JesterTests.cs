@@ -9,6 +9,13 @@ namespace CanHazFunny.Tests;
 public class JesterTests
 {
     [Fact]
+    public void Constructor_ValidParameters_AllocatesNewInstance()
+    {
+        Jester jester = new Jester(new GoodJokeTestClass(), new ConsoleOutput());
+        Assert.NotNull(jester);
+    }
+    
+    [Fact]
     public void Constructor_NullJokeService_ThrowsArgumentNullException()
     {
         Assert.Throws<ArgumentNullException>(() => new Jester(null, new ConsoleOutput()));
@@ -19,7 +26,7 @@ public class JesterTests
     {
         Assert.Throws<ArgumentNullException>(() => new Jester(new GoodJokeTestClass(), null));
     }
-    
+
     [Fact]
     public void TellJoke_JokeOutput_JokeOutputToStandardOut()
     {
