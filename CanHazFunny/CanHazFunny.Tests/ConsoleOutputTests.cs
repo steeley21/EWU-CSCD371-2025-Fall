@@ -11,9 +11,9 @@ public class ConsoleOutputTests
     [Fact]
     public void WriteLine_WithMessage_WritesMessageAndNewLine()
     {
-        var consoleOutput = new ConsoleOutput();
-        var original = Console.Out;
-        using var sw = new StringWriter();
+        ConsoleOutput consoleOutput = new ConsoleOutput();
+        TextWriter original = Console.Out;
+        using StringWriter sw = new StringWriter();
 
         try
         {
@@ -30,9 +30,9 @@ public class ConsoleOutputTests
     [Fact]
     public void WriteLine_WithEmptyString_WritesNewLineOnly()
     {
-        var consoleOutput = new ConsoleOutput();
-        var original = Console.Out;
-        using var sw = new StringWriter();
+        ConsoleOutput consoleOutput = new ConsoleOutput();
+        TextWriter original = Console.Out;
+        using StringWriter sw = new StringWriter();
 
         try
         {
@@ -49,9 +49,9 @@ public class ConsoleOutputTests
     [Fact]
     public void WriteLine_OnMultipleCalls_AppendsEachOnNewLine()
     {
-        var consoleOutput = new ConsoleOutput();
-        var original = Console.Out;
-        using var sw = new StringWriter();
+        ConsoleOutput consoleOutput = new ConsoleOutput();
+        TextWriter original = Console.Out;
+        using StringWriter sw = new StringWriter();
 
         try
         {
