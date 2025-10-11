@@ -11,7 +11,7 @@ public class JokeServiceTests
     [Fact]
     public void GetJoke_ShouldReturnNonEmptyString()
     {
-        IJokeService jokeService = new JokeService();
+        JokeService jokeService = new JokeService();
         string joke = jokeService.GetJoke();
         Assert.NotNull(joke);
         Assert.IsType<string>(joke);

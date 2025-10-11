@@ -74,7 +74,7 @@ public class GoodJokeTestClass : IJokeService
 
 public class BadJokeTestClass : IJokeService
 {
-    Queue<string> jokes;
+    readonly Queue<string> jokes;
     public BadJokeTestClass()
     {
         jokes = new Queue<string>();
