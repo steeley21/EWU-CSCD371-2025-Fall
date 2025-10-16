@@ -28,8 +28,8 @@ public class ConsoleOutputTests
         using StringWriter sw = new StringWriter();
         Console.SetOut(sw);
         consoleOutput.WriteLine(string.Empty);
-        Assert.Equal(Environment.NewLine, sw.ToString());
         Console.SetOut(original);
+        Assert.Equal(Environment.NewLine, sw.ToString());
     }
 
     [Fact]
