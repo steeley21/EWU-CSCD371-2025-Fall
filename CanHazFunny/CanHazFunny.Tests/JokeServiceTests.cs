@@ -13,7 +13,7 @@ public class JokeServiceTests
     {
         JokeService jokeService = new JokeService();
         string joke = jokeService.GetJoke();
-        Assert.NotNull(joke);
+        Assert.False(string.IsNullOrEmpty(joke), "JokeService returned an empty or whitespace string.");
         Assert.IsType<string>(joke);
     }
 }
