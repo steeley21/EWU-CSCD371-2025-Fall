@@ -16,7 +16,6 @@ public class JokeService : IJokeService
         Dictionary<string, string>? JokeDict = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
         if (JokeDict is not null)
         {
-            Console.WriteLine(JokeDict["joke"]);
             return JokeDict["joke"];
         }
         return string.Empty;
