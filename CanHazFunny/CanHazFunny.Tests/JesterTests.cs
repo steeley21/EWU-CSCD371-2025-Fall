@@ -42,25 +42,19 @@ public class JesterTests
     [Fact]
     public void TellJoke_GoodJokeGiven_GoodJokeOutputToConsole()
     {
-        TextWriter originalOut = Console.Out;
-        using StringWriter sw = new StringWriter();
-        Console.SetOut(sw);
-        Jester jester = new Jester(new GoodJokeTestClass(), new ConsoleOutput());
+        TestOutput tester = new TestOutput();
+        Jester jester = new Jester(new GoodJokeTestClass(), tester);
         jester.TellJoke();
-        Console.SetOut(originalOut);
-        Assert.Equal("Funny joke that does not contain the illegal term.", sw.ToString().Trim());
+        Assert.Equal("Funny joke that does not contain the illegal term.", tester.Output[0]);
     }
 
     [Fact]
     public void TellJoke_BadJokeGiven_GoodJokeOutputToConsole()
     {
-        TextWriter originalOut = Console.Out;
-        using StringWriter sw = new StringWriter();
-        Console.SetOut(sw);
-        Jester jester = new Jester(new BadJokeTestClass(), new ConsoleOutput());
+        TestOutput tester = new TestOutput();
+        Jester jester = new Jester(new BadJokeTestClass(), tester);
         jester.TellJoke();
-        Console.SetOut(originalOut);
-        Assert.Equal("A good joke.", sw.ToString().Trim());
+        Assert.Equal("A good joke.", tester.Output[0]);
     }
 }
 
@@ -86,5 +80,14 @@ public class BadJokeTestClass : IJokeService
     public string GetJoke()
     {
         return jokes.Dequeue();
+    }
+}
+
+public class TestOutput : IOutput
+{
+    public List<string> Output { get; } = new List<string>();
+    public void WriteLine(string joke)
+    {
+        Output.Add(joke);
     }
 }
