@@ -86,8 +86,8 @@ public class BadJokeTestClass : IJokeService
 public class TestOutput : IOutput
 {
     public List<string> Output { get; } = new List<string>();
-    public void WriteLine(string joke)
+    public void WriteLine(string message)
     {
-        Output.Add(joke);
+        Output.Add(message);
     }
 }
