@@ -1,6 +1,14 @@
 namespace Logger;
 
-public record Student(FullName fullName) : Person(fullName)
+public record Student(FullName fullName, string studenId) : Person(fullName)
 {
-    // All interface members are implicit because Person handles their implementation.
+    public required string StudentId { get; init; }
+    public override string Name
+    {
+        // Implicit implementation because Name getter should be publically available via Student Instance
+        get
+        {
+            return $"{PersonDisplayName} (ID: {StudentId})";
+        }
+    }
 }

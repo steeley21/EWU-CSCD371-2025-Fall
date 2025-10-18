@@ -7,6 +7,7 @@ public record Book(string title, Person author) : Entity
 
     public override string Name
     {
+        // Implicit implementation because Name getter should be publically available via Book Instance
         get
         {
             return $"{Title} by {Author.Name}";
