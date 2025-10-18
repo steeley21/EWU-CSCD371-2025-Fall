@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    public abstract class Person : Entity
+    public abstract record Person : Entity
     {
         protected Person(FullName fullName)
         {
