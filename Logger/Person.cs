@@ -23,7 +23,7 @@ namespace Logger
             }
         }
 
-        public FullName FullName { get; init; }
+        public FullName FullName { get; }
 
         protected string PersonDisplayName => FullName.ToString();
     }
