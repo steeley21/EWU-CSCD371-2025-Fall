@@ -2,12 +2,13 @@ namespace Logger;
 
 public record Employee : Person
 {
-    public required string Position { get; set; }
+    public required string Position { get; init; }
 
-    public Employee(FullName fullName, string position) : base(fullName)
-    {
-        Position = position;
-    }
+    // public Employee(FullName fullName, string position) : base(fullName)
+    // {
+    //     Position = position;
+    //     FullName
+    // }
 
     public override string Name
     {

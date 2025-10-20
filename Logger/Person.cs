@@ -8,10 +8,10 @@ namespace Logger
 {
     public abstract record Person : Entity
     {
-        protected Person(FullName fullName)
-        {
-            FullName = fullName;
-        }
+        // protected Person(FullName fullName)
+        // {
+        //     FullName = fullName;
+        // }
 
         public override string Name
         {
@@ -23,7 +23,7 @@ namespace Logger
             }
         }
 
-        public FullName FullName { get; }
+        public FullName FullName { get; init; }
 
         protected string PersonDisplayName => FullName.ToString();
     }

@@ -2,12 +2,8 @@ namespace Logger;
 
 public record Student : Person
 {
-    public required string StudentId { get; set; }
+    public required string StudentId { get; init; }
 
-    public Student(FullName fullName, string studentId) : base(fullName)
-    {
-        StudentId = studentId;
-    }
     public override string Name
     {
         // Implicit implementation because Name getter should be publically available via Student Instance

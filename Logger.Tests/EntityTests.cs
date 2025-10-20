@@ -33,9 +33,10 @@ public class EntityTests
     [Fact]
     public void Equals_OneStudentObject_ReturnsTrue()
     {
-        Student testStudent = new Student(new FullName("Test", "Student"), "S12345")
+        Student testStudent = new Student()
         {
-            StudentId = "S12345" // We need to remove this, im just about to crash out rn
+            FullName = new FullName("Test", "Student"),
+            StudentId = "S12345"
         };
 
         Assert.True(testStudent.Equals(testStudent));
@@ -44,12 +45,14 @@ public class EntityTests
     [Fact]
     public void Equals_TwoStudentObjectsWithSameIdAndName_ReturnsTrue()
     {
-        Student student1 = new Student(new FullName("Test", "Student"), "S12345")
+        Student student1 = new Student()
         {
+            FullName = new FullName("Test", "Student"),
             StudentId = "S12345"
         };
-        Student student2 = new Student(new FullName("Test", "Student"), "S12345")
+        Student student2 = new Student()
         {
+            FullName = new FullName("Test", "Student"),
             StudentId = "S12345"
         };
 
@@ -59,12 +62,14 @@ public class EntityTests
     [Fact]
     public void Equals_TwoStudentObjectsWithDifferentIds_ReturnsFalse()
     {
-        Student student1 = new Student(new FullName("Test", "Student"), "S12345")
+        Student student1 = new Student()
         {
+            FullName = new FullName("Test", "Student"),
             StudentId = "S12345"
         };
-        Student student2 = new Student(new FullName("Test", "Student"), "S67890")
+        Student student2 = new Student()
         {
+            FullName = new FullName("Test", "Student"),
             StudentId = "S67890"
         };
 
@@ -74,12 +79,14 @@ public class EntityTests
     [Fact]
     public void Equals_TwoStudentObjectsWithDifferentNames_ReturnsFalse()
     {
-        Student student1 = new Student(new FullName("Test", "Student1"), "S12345")
+        Student student1 = new Student()
         {
+            FullName = new FullName("Test", "Student1"),
             StudentId = "S12345"
         };
-        Student student2 = new Student(new FullName("Test", "Student2"), "S12345")
+        Student student2 = new Student()
         {
+            FullName = new FullName("Test", "Student2"),
             StudentId = "S12345"
         };
 
@@ -89,9 +96,10 @@ public class EntityTests
     [Fact]
     public void Equals_OneEmployeeObject_ReturnsTrue()
     {
-        Employee testEmployee = new Employee(new FullName("Test", "Employee"), "E12345")
+        Employee testEmployee = new Employee()
         {
-            Position = "E12345" // Also need to fix this
+            FullName = new FullName("Test", "Employee"),
+            Position = "E12345"
         };
 
         Assert.True(testEmployee.Equals(testEmployee));
@@ -100,12 +108,14 @@ public class EntityTests
     [Fact]
     public void Equals_TwoEmployeeObjectsWithSamePositionAndName_ReturnsTrue()
     {
-        Employee employee1 = new Employee(new FullName("Test", "Employee"), "E12345")
+        Employee employee1 = new Employee
         {
+            FullName = new FullName("Test", "Employee"),
             Position = "E12345"
         };
-        Employee employee2 = new Employee(new FullName("Test", "Employee"), "E12345")
+        Employee employee2 = new Employee
         {
+            FullName = new FullName("Test", "Employee"),
             Position = "E12345"
         };
 
@@ -115,12 +125,14 @@ public class EntityTests
     [Fact]
     public void Equals_TwoEmployeeObjectsWithDifferentPositions_ReturnsFalse()
     {
-        Employee employee1 = new Employee(new FullName("Test", "Employee"), "E12345")
+        Employee employee1 = new Employee
         {
+            FullName = new FullName("Test", "Employee"),
             Position = "E12345"
         };
-        Employee employee2 = new Employee(new FullName("Test", "Employee"), "E67890")
+        Employee employee2 = new Employee
         {
+            FullName = new FullName("Test", "Employee"),
             Position = "E67890"
         };
 
@@ -130,12 +142,14 @@ public class EntityTests
     [Fact]
     public void Equals_TwoEmployeeObjectsWithDifferentNames_ReturnsFalse()
     {
-        Employee employee1 = new Employee(new FullName("Test", "Employee1"), "E12345")
+        Employee employee1 = new Employee
         {
+            FullName = new FullName("Test", "Employee1"),
             Position = "E12345"
         };
-        Employee employee2 = new Employee(new FullName("Test", "Employee2"), "E12345")
+        Employee employee2 = new Employee
         {
+            FullName = new FullName("Test", "Employee2"),
             Position = "E12345"
         };
 
