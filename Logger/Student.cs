@@ -6,7 +6,7 @@ public record Student : Person
 
     public override string Name
     {
-        // Implicit implementation because Name getter should be publically available via Student Instance
+        // Implicit implementation because Name getter should be publicly available via Student Instance
         get
         {
             return $"{PersonDisplayName} (ID: {StudentId})";
