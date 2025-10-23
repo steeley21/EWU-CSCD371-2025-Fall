@@ -4,14 +4,8 @@ public record Book : Entity
 {
     public required string Title { get; init; }
 
-    public override string Name
-    {
-        // Implicit implementation because Name getter should be publically available via Book Instance
-        get
-        {
-            return $"{Title}";
-        }
-    }
+    // Implicit implementation because Name getter should be publicly available via Book Instance
+    public override string Name => $"{Title}";
 
     public virtual bool Equals(Book? obj)
     {
