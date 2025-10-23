@@ -4,20 +4,8 @@ public record Employee : Person
 {
     public required string Position { get; init; }
 
-    // public Employee(FullName fullName, string position) : base(fullName)
-    // {
-    //     Position = position;
-    //     FullName
-    // }
-
-    public override string Name
-    {
-        // Implicit implementation because Name getter should be publically available via Employee Instance
-        get
-        {
-            return $"{PersonDisplayName}, {Position}";
-        }
-    }
+    // Implicit implementation because Name getter should be publicly available via Employee Instance
+    public override string Name => $"{base.Name}, {Position}";
 
     public virtual bool Equals(Employee? obj)
     {

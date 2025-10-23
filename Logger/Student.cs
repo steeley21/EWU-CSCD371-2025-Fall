@@ -4,14 +4,8 @@ public record Student : Person
 {
     public required string StudentId { get; init; }
 
-    public override string Name
-    {
         // Implicit implementation because Name getter should be publicly available via Student Instance
-        get
-        {
-            return $"{PersonDisplayName} (ID: {StudentId})";
-        }
-    }
+    public override string Name => $"{base.Name} (ID: {StudentId})";
 
     public virtual bool Equals(Student? obj)
     {

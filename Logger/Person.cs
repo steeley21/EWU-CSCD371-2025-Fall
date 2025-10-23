@@ -19,5 +19,4 @@ public abstract record Person : Entity
 
     public FullName FullName { get; init; }
 
-    protected string PersonDisplayName => FullName.ToString();
 }
