@@ -4,7 +4,7 @@ public record Student : Person
 {
     public required string StudentId { get; init; }
 
-        // Implicit implementation because Name getter should be publicly available via Student Instance
+    // Implicit implementation because Name getter should be publicly available via Student Instance
     public override string Name => $"{base.Name} (ID: {StudentId})";
 
     public virtual bool Equals(Student? obj)
